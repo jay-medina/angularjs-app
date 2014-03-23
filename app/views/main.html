@@ -1,0 +1,15 @@
+<h1>Todo App!</h1>
+<div class="row marketing">
+  <form ng-submit="addTodo()" role="form">
+     <div class="form-group">
+      <input type="text" class="form-control" placeholder="What is next?" ng-model="newTodo" autofocus>
+      </div>
+  </form>
+    <p class="input-group" ng-repeat ="thing in things">
+      <input class="form-control" value='{{thing}}'/>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-danger" ng-click="removeItem($index)">X</button>
+      </span>
+      
+    </p>
+</div>
