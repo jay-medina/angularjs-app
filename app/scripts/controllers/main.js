@@ -2,8 +2,8 @@
 
 angular.module('todoApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.select.home = "";
-    $scope.select.calc = "False";
+    $scope.select.home = '';
+    $scope.select.calc = 'False';
 
     $scope.things = [
       'HTML5 Boilerplate',
@@ -15,11 +15,11 @@ angular.module('todoApp')
     $scope.newTodo = '';
 
     $scope.addTodo = function(){
-		$scope.things.push($scope.newTodo);
-		$scope.newTodo = '';
+		  $scope.things.push($scope.newTodo);
+		  $scope.newTodo = '';
     };
 
     $scope.removeItem = function(index){
-    	$scope.things.splice(index, 1);
+      $scope.things.splice(index, 1);
     };
   });

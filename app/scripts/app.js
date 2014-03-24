@@ -18,7 +18,7 @@ angular.module('todoApp', [
         redirectTo: '/'
       });
   })
-  .controller("ParentCtrl", function($scope){
-      $scope.select = {"home" : "", "calc" : "false"};
+  .controller('ParentCtrl', function($scope){
+      $scope.select = {'home' : '', 'calc' : 'false'};
 
-  });
+    });

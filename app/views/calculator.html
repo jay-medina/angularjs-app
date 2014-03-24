@@ -1,7 +1,7 @@
 <div id="calcBody">
 	<table>
 		<tr>
-			<td colspan="4" id="input"><input type="text" value="0"/></td>
+			<td colspan="4" id="input"><input type="text" ng-model="val"/></td>
 		</tr>
 		<tr>
 			<td>CE</td>
@@ -10,21 +10,21 @@
 			<td>/</td>
 		</tr>
 		<tr>
-			<td class="number">7</td>
-			<td class="number">8</td>
-			<td class="number">9</td>
+			<td class="number" ng-click="setValue(7);">7</td>
+			<td class="number" ng-click="setValue(8);">8</td>
+			<td class="number" ng-click="setValue(9);">9</td>
 			<td>X</td>
 		</tr>
 		<tr>
-			<td class="number">4</td>
-			<td class="number">5</td>
-			<td class="number">6</td>
+			<td class="number" ng-click="setValue(4);">4</td>
+			<td class="number" ng-click="setValue(5);">5</td>
+			<td class="number" ng-click="setValue(6);">6</td>
 			<td>-</td>
 		</tr>
 		<tr>
-			<td class="number">1</td>
-			<td class="number">2</td>
-			<td class="number">3</td>
+			<td class="number" ng-click="setValue(1);">1</td>
+			<td class="number" ng-click="setValue(2);">2</td>
+			<td class="number" ng-click="setValue(3);">3</td>
 			<td>+</td>
 		</tr>
 		<tr>
