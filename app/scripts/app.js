@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoApp', [
+angular.module('angularDemoApps', [
   'ngResource',
   'ngRoute'
 ])
@@ -12,13 +12,9 @@ angular.module('todoApp', [
       })
       .when('/calculator', {
         templateUrl: 'views/calculator.html',
-        controller: 'calcCtrl'
+        controller: 'CalcCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
-  })
-  .controller('ParentCtrl', function($scope){
-      $scope.select = {'home' : '', 'calc' : 'false'};
-
-    });
+  });

@@ -1,9 +1,7 @@
 'use strict';
 
-angular.module('todoApp')
+angular.module('angularDemoApps')
   .controller('MainCtrl', function ($scope) {
-    $scope.select.home = '';
-    $scope.select.calc = 'False';
 
     $scope.things = [
       'HTML5 Boilerplate',
