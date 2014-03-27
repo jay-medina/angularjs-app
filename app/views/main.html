@@ -6,9 +6,9 @@
       </div>
   </form>
     <p class="input-group" ng-repeat ="thing in things">
-      <input class="form-control" value='{{thing}}'/>
+      <input class="form-control" value='{{thing.item}}'/>
       <span class="input-group-btn">
-        <button type="button" class="btn btn-danger" ng-click="removeItem($index)">X</button>
+        <button type="button" class="btn btn-danger" ng-click="removeTodo($index)">X</button>
       </span>
       
     </p>
