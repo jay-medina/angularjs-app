@@ -111,6 +111,7 @@ div#calcBody td{
   background-color: #585656;
   text-align:center;
   color: rgba(189, 189, 189, 1);
+  cursor: pointer;
 }
 
 div#calcBody td.number{
