@@ -1,31 +1,35 @@
 <div id="calcBody">
 	<table>
 		<tr>
-			<td colspan="4" id="input"><input type="text" ng-model="val"/></td>
+			<td colspan="4" id="input">
+				<div>{{equation}}</div>
+				<input type="text" ng-model="val"/>
+
+			</td>
 		</tr>
 		<tr>
 			<td ng-click="clearValue()">CE</td>
 			<td ng-click="clearValue()">C</td>
 			<td ng-click="backTrack()">Bck</td>
-			<td>/</td>
+			<td ng-click="setOperation('/')">&#247;</td>
 		</tr>
 		<tr>
 			<td class="number" ng-click="setValue(7);">7</td>
 			<td class="number" ng-click="setValue(8);">8</td>
 			<td class="number" ng-click="setValue(9);">9</td>
-			<td>X</td>
+			<td ng-click="setOperation('*')">x</td>
 		</tr>
 		<tr>
 			<td class="number" ng-click="setValue(4);">4</td>
 			<td class="number" ng-click="setValue(5);">5</td>
 			<td class="number" ng-click="setValue(6);">6</td>
-			<td>-</td>
+			<td ng-click="setOperation('-')">-</td>
 		</tr>
 		<tr>
 			<td class="number" ng-click="setValue(1);">1</td>
 			<td class="number" ng-click="setValue(2);">2</td>
 			<td class="number" ng-click="setValue(3);">3</td>
-			<td>+</td>
+			<td ng-click="setOperation('+')">+</td>
 		</tr>
 		<tr>
 			<td class="number" ng-click="setValue(0)">0</td>
