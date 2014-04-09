@@ -113,7 +113,7 @@ div#calcBody table{
   border-collapse: separate;
   border-spacing: 10px;
 }
-div#calcBody td{
+div#calcBody td, div#calcBody button{
   font-weight:300;
   padding: 5px;
   width:25%;
@@ -124,7 +124,11 @@ div#calcBody td{
   cursor: pointer;
 }
 
-div#calcBody td.number{
+div#calcBody button{
+  width: 100%;
+}
+
+div#calcBody .number{
   color:white;
 }
 
