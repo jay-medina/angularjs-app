@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularDemoApps')
-.controller('CalcCtrl', ['$scope', function($scope){
+.controller('CalcCtrl', ['$scope', 'ValueService', function($scope, ValueService){
 		$scope.values = {displayValue: '0', currentValue: 0, total: 0};
 		$scope.equation = '';
 		$scope.sign = '';
@@ -25,10 +25,10 @@ angular.module('angularDemoApps')
 
 		$scope.setValue = function(val){
 			if($scope.sign === ''){
-				set.InitialValue(val);
+				ValueService.InitialValue($scope, val);
 			}
 			else{
-				set.SecondValue(val);
+				ValueService.SecondValue($scope,val);
 			}
 		};
 
@@ -52,29 +52,6 @@ angular.module('angularDemoApps')
 				$scope.sign = eqSign;
 			}
 			
-		};
-
-		var set = {
-			InitialValue: function(val){
-				if($scope.values.displayValue === '0'){
-				  $scope.values.displayValue = '' + val;
-				}
-				else{
-				  $scope.values.displayValue += val;
-				}
-
-				$scope.values.currentValue = Number($scope.values.displayValue);
-			},
-			SecondValue: function(val){
-				if($scope.values.currentValue === 0){
-					$scope.values.displayValue = '' + val;
-				}
-				else{
-					$scope.values.displayValue += val;
-				}
-
-				$scope.values.currentValue = Number($scope.values.displayValue);
-			}
 		};
 
   }]);
