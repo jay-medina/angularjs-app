@@ -16,11 +16,13 @@ angular.module('angularDemoApps')
 			}
 		};
 
-		$scope.clearValue = function(){
+		$scope.clearValue = function(reset){
 			$scope.values.displayValue = '0';
 			$scope.values.currentValue = 0;
 			$scope.values.total = 0;
-			setEquation('reset');
+			if(reset){
+				setEquation('reset');
+			}
 		};
 
 		$scope.setValue = function(val){
