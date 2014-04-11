@@ -136,7 +136,7 @@ div#calcBody td#clear{
   background-color: #AF0A0A;
 }
 
-div#calcBody td#equalsign{
+div#calcBody button#equalsign{
   background-color: #2A8F2E;
 
 }

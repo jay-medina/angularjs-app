@@ -3,7 +3,8 @@
 angular.module('angularDemoApps', [
   'ngResource',
   'ngRoute',
-  'Services'
+  'Services',
+  'Factory'
 ])
   .config(function ($routeProvider) {
     $routeProvider

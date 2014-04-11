@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('angularDemoApps')
-.controller('CalcCtrl', ['$scope', 'ValueService', function($scope, ValueService){
+.controller('CalcCtrl',
+
+	['$scope', 'ValueService', 'EquationService', 'Sign',
+
+	function($scope, ValueService, EquationService, Sign){
 		$scope.values = {displayValue: '0', currentValue: 0, total: 0};
 		$scope.equation = '';
 		$scope.sign = '';
@@ -35,7 +39,10 @@ angular.module('angularDemoApps')
 		};
 
 		$scope.setOperation = function(op){
-			if('+' === op || '-' === op || '*' === op || '/' === op){
+			if(Sign.add === op ||
+			   Sign.subtract === op ||
+			   Sign.multiply === op ||
+			   Sign.divide === op){
 
 				setEquation(op);
 				$scope.values.total = $scope.values.currentValue;
@@ -54,6 +61,16 @@ angular.module('angularDemoApps')
 				$scope.sign = eqSign;
 			}
 			
+		};
+
+		$scope.evaluate = function(){
+			if($scope.sign === Sign.add){
+				var sum = EquationService.add($scope.values.total, $scope.values.currentValue);
+				setEquation('reset');
+				$scope.values.total = sum;
+				$scope.values.displayValue = sum;
+				$scope.values.currentValue = 0;
+			}
 		};
 
   }]);
