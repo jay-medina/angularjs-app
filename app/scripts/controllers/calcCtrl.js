@@ -64,13 +64,33 @@ angular.module('angularDemoApps')
 		};
 
 		$scope.evaluate = function(){
+			var sum = 0;
+
 			if($scope.sign === Sign.add){
-				var sum = EquationService.add($scope.values.total, $scope.values.currentValue);
-				setEquation('reset');
-				$scope.values.total = sum;
-				$scope.values.displayValue = sum;
-				$scope.values.currentValue = 0;
+				sum = EquationService.add($scope.values.total, $scope.values.currentValue);
+				evaluateParam(sum);
 			}
+			else if($scope.sign === Sign.subtract){
+				sum = EquationService.subtract($scope.values.total, $scope.values.currentValue);
+				evaluateParam(sum);
+			}
+			else if($scope.sign === Sign.divide){
+				sum = EquationService.divide($scope.values.total, $scope.values.currentValue);
+				evaluateParam(sum);
+			}
+			else if($scope.sign === Sign.multiply){
+				sum = EquationService.multiply($scope.values.total, $scope.values.currentValue);
+				evaluateParam(sum);
+			}
+
+		};
+
+		var evaluateParam = function(sum){
+			setEquation('reset');
+			$scope.values.total = sum;
+			$scope.values.displayValue = '' + sum;
+			$scope.values.currentValue = sum;
+			$scope.sign = '';
 		};
 
   }]);
