@@ -9,9 +9,10 @@ angular.module('angularDemoApps')
 		$scope.values = {displayValue: '0', currentValue: 0, total: 0};
 		$scope.equation = '';
 		$scope.sign = '';
+		var evaluateHit = false;
 
 		$scope.backTrack = function(){
-			if($scope.values.currentValue !== 0){
+			if($scope.values.currentValue !== 0 && !evaluateHit){
 				var displayValue = $scope.values.displayValue;
 				$scope.values.displayValue = displayValue.slice(0, displayValue.length-1);
 				if($scope.values.displayValue === ''){
@@ -25,6 +26,7 @@ angular.module('angularDemoApps')
 			$scope.values.currentValue = 0;
 			$scope.values.total = 0;
 			if(reset){
+				evaluateHit = false;
 				setEquation('reset');
 			}
 		};
@@ -65,7 +67,7 @@ angular.module('angularDemoApps')
 
 		$scope.evaluate = function(){
 			var sum = 0;
-
+			evaluateHit = true;
 			if($scope.sign === Sign.add){
 				sum = EquationService.add($scope.values.total, $scope.values.currentValue);
 				evaluateParam(sum);
