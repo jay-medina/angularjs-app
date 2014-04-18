@@ -1,8 +1,9 @@
 'use strict';
 
 
-angular.module('angularDemoApps').controller('ParentCtrl', function($scope){
-      $scope.header = {'home' : true, 'calc' : false};
+angular.module('angularDemoApps').controller('ParentCtrl', function($scope, $location){
+
+      $scope.header = {'home' : false, 'calculator' : false};
 
       var initializeAllHeaders = function(){
             for(var i in $scope.header){
@@ -15,4 +16,15 @@ angular.module('angularDemoApps').controller('ParentCtrl', function($scope){
             $scope.header[page] = true;
           };
 
+      var path = $location.path();
+      path = path.split('/')[1];
+      
+      if('' === path){
+        $scope.clickHeader('home');
+      }
+      else{
+        $scope.clickHeader(path);
+      }
+
+      
     });
