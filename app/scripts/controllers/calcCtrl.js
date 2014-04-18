@@ -32,6 +32,10 @@ angular.module('angularDemoApps')
 		};
 
 		$scope.setValue = function(val){
+			if(evaluateHit){
+				$scope.values.displayValue = '0';
+				evaluateHit = false;
+			}
 			if($scope.sign === ''){
 				ValueService.InitialValue($scope, val);
 			}
