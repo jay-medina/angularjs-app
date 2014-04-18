@@ -6,6 +6,7 @@ angular.module('angularDemoApps')
 	['$scope', 'ValueService', 'EquationService', 'Sign',
 
 	function($scope, ValueService, EquationService, Sign){
+		$scope.clickHeader('calculator');
 		$scope.values = {displayValue: '0', currentValue: 0, total: 0};
 		$scope.equation = '';
 		$scope.sign = '';

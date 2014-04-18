@@ -2,6 +2,7 @@
 
 angular.module('angularDemoApps')
   .controller('MainCtrl', function ($scope) {
+    $scope.clickHeader('home');
     $scope.things = [];
 
 
