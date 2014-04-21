@@ -20,3 +20,6 @@ angular.module('angularDemoApps', [
         redirectTo: '/'
       });
   });
+
+angular.module('Services', []);
+angular.module('Factory', []);

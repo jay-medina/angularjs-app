@@ -4,7 +4,8 @@
 *
 * Module for calculator sign items
 */
-angular.module('Factory', [])
+
+angular.module('Factory')
 
 .factory('Sign', function(){
 	

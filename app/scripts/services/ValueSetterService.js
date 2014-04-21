@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Services', [])
+angular.module('Services')
 .service('ValueService', function(){
 
 	var decimalCheck = function(displayValue){
