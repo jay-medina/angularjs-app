@@ -7,25 +7,36 @@ describe('Test for ParentCtrl', function(){
 
   var ParentCtrl, scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    ParentCtrl = $controller('ParentCtrl', {
-      $scope: scope
+  var initializeVars = function (controller, rootScope, loc) {
+    scope = rootScope.$new();
+    
+    ParentCtrl = controller('ParentCtrl', {
+      $scope: scope,
+      $location: loc
     });
+  };
+
+  it('should check the initial values for Header', inject(function ($controller, $rootScope, $location) {
+    $location.path('/');
+    initializeVars($controller, $rootScope, $location);
+    expect(scope.header).toEqual({'home' : true, 'calculator' : false});
   }));
 
-  it('should check the initial values for Header', function () {
-    expect(scope.header).toEqual({'home' : true, 'calc' : false});
-  });
+  it('should go to the calculator header', inject(function($controller, $rootScope, $location){
+    $location.path('calculator');
+    initializeVars($controller, $rootScope, $location);
+    expect(scope.header).toEqual({'home' : false, 'calculator' : true});
+  }));
 
-  it('will set home to false when calc is clicked', function(){
-	  expect(scope.header).toEqual({'home' : true, 'calc' : false});
-	  scope.clickHeader('calc');
-	  expect(scope.header.calc).toEqual(true);
+  it('will set home to false when calc is clicked', inject(function ($controller, $rootScope, $location) {
+    $location.path('/');
+    initializeVars($controller, $rootScope, $location);
+	  expect(scope.header).toEqual({'home' : true, 'calculator' : false});
+	  scope.clickHeader('calculator');
+	  expect(scope.header.calculator).toEqual(true);
 	  expect(scope.header.home).toEqual(false);
 	  scope.clickHeader('home');
-	  expect(scope.header.calc).toEqual(false);
+	  expect(scope.header.calculator).toEqual(false);
 	  expect(scope.header.home).toEqual(true);
-  });
+  }));
 });

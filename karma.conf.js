@@ -46,6 +46,13 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['Chrome'],
 
+    //code coverage set up
+    preprocessors: { //this is the directory you want to run the coverage
+      '**/app/scripts/**/*.js': 'coverage'
+    },
+
+    //this creates the report for you
+    reporters: ['coverage'],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

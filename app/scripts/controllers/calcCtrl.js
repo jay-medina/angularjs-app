@@ -10,14 +10,17 @@ angular.module('angularDemoApps')
 		$scope.values = {displayValue: '0', currentValue: 0, total: 0};
 		$scope.equation = '';
 		$scope.sign = '';
-		var evaluateHit = false;
+		$scope.evaluateHit = false;
 
 		$scope.backTrack = function(){
-			if($scope.values.currentValue !== 0 && !evaluateHit){
+			if($scope.values.currentValue !== 0 && !$scope.evaluateHit){
 				var displayValue = $scope.values.displayValue;
 				$scope.values.displayValue = displayValue.slice(0, displayValue.length-1);
 				if($scope.values.displayValue === ''){
 					$scope.clearValue();
+				}
+				else{
+					$scope.values.currentValue = Number($scope.values.displayValue);
 				}
 			}
 		};
@@ -27,15 +30,15 @@ angular.module('angularDemoApps')
 			$scope.values.currentValue = 0;
 			$scope.values.total = 0;
 			if(reset){
-				evaluateHit = false;
+				$scope.evaluateHit = false;
 				setEquation('reset');
 			}
 		};
 
 		$scope.setValue = function(val){
-			if(evaluateHit){
+			if($scope.evaluateHit){
 				$scope.values.displayValue = '0';
-				evaluateHit = false;
+				$scope.evaluateHit = false;
 			}
 			if($scope.sign === ''){
 				ValueService.InitialValue($scope, val);
@@ -72,7 +75,7 @@ angular.module('angularDemoApps')
 
 		$scope.evaluate = function(){
 			var sum = 0;
-			evaluateHit = true;
+			$scope.evaluateHit = true;
 			if($scope.sign === Sign.add){
 				sum = EquationService.add($scope.values.total, $scope.values.currentValue);
 				evaluateParam(sum);
