@@ -4,6 +4,7 @@ angular.module('angularDemoApps', [
   'ngResource',
   'ngRoute',
   'Services',
+  //'Directives',
   'Factory'
 ])
   .config(function ($routeProvider) {
@@ -16,6 +17,10 @@ angular.module('angularDemoApps', [
         templateUrl: 'views/calculator.html',
         controller: 'CalcCtrl'
       })
+      .when('/2048', {
+        templateUrl: 'views/game.html',
+        controller: 'GameCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -25,3 +30,16 @@ angular.module('angularDemoApps', [
 
 angular.module('Services', []);
 angular.module('Factory', []);
+/*angular.module('Directives', [])
+
+.directive('something', function(){
+
+  var link = function(){
+
+  };
+
+  return {
+    link: link
+  };
+
+}); */

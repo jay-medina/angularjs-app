@@ -3,7 +3,7 @@
 
 angular.module('angularDemoApps').controller('ParentCtrl', function($scope, $location){
 
-      $scope.header = {'home' : false, 'calculator' : false};
+      $scope.header = {'home' : false, 'calculator' : false, 'game' : false};
 
       var initializeAllHeaders = function(){
             for(var i in $scope.header){

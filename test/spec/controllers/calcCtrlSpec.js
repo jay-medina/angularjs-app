@@ -6,9 +6,10 @@ describe('Controller: CalcCtrl', function () {
   beforeEach(function(){
     module('angularDemoApps');
     module('Services');
+    module('Factory');
   });
 
-  var CalcCtrl, scope, header, ValueService;
+  var CalcCtrl, scope, header, ValueService, EquationService, Sign;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $injector) {
@@ -23,6 +24,8 @@ describe('Controller: CalcCtrl', function () {
     });
 
     ValueService = $injector.get('ValueService');
+    EquationService = $injector.get('EquationService');
+    Sign = $injector.get('Sign');
   }));
 
   it('should check that header is "calculator"', function () {
@@ -104,4 +107,48 @@ describe('Controller: CalcCtrl', function () {
     expect(scope.values.displayValue).toBe('424');
 
   });
+
+  var evaluateEquationTests = function(Sign, method, resultValue){
+      
+      scope.values.currentValue = 10;
+      scope.values.displayValue = '10';
+      scope.values.total = 34;
+      scope.sign = Sign;
+
+      scope.evaluate();
+      expect(scope.evaluateHit).toBe(true);
+      expect(scope.values.total).toBe(resultValue);
+      expect(scope.values.displayValue).toBe('' + resultValue);
+      expect(scope.values.currentValue).toBe(resultValue);
+      expect(scope.sign).toBe('');
+      expect(method).toHaveBeenCalled();
+    };
+
+  it('should evaluate the equation by add', function(){
+      spyOn(EquationService, 'add').andCallFake(function(total, currentVal){
+          return total + currentVal;
+        });
+      evaluateEquationTests(Sign.add, EquationService.add, 44);
+    });
+
+  it('should evaluate the equation by subtract', function(){
+      spyOn(EquationService, 'subtract').andCallFake(function(total, currentVal){
+          return total - currentVal;
+        });
+      evaluateEquationTests(Sign.subtract, EquationService.subtract, 24);
+    });
+
+  it('should evaluate the equation by divide', function(){
+      spyOn(EquationService, 'divide').andCallFake(function(total, currentVal){
+          return total / currentVal;
+        });
+      evaluateEquationTests(Sign.divide, EquationService.divide, 3.4);
+    });
+
+  it('should evaluate the equation by multiply', function(){
+      spyOn(EquationService, 'multiply').andCallFake(function(total, currentVal){
+          return total * currentVal;
+        });
+      evaluateEquationTests(Sign.multiply, EquationService.multiply, 340);
+    });
 });

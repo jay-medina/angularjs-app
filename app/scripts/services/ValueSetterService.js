@@ -13,13 +13,14 @@ angular.module('Services')
 	};
 
 	this.InitialValue = function($scope, val){
-		if($scope.values.displayValue === '0' && !decimalCheck(val)){
+		var decimalVal = decimalCheck(val);
+		if($scope.values.displayValue === '0' && !decimalVal){
 			$scope.values.displayValue = '' + val;
 		}
-		else if(decimalCheck(val) && !decimalCheck($scope.values.displayValue)){
+		else if(decimalVal && !decimalCheck($scope.values.displayValue)){
 			$scope.values.displayValue += val;
 		}
-		else if(!decimalCheck(val)){
+		else if(!decimalVal){
 
 			$scope.values.displayValue += val;
 		}
