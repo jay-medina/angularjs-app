@@ -4,7 +4,8 @@ angular.module('angularDemoApps', [
   'ngResource',
   'ngRoute',
   'Services',
-  'Factory'
+  'Factory',
+  'Directives'
 ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -29,3 +30,4 @@ angular.module('angularDemoApps', [
 
 angular.module('Services', []);
 angular.module('Factory', []);
+angular.module('Directives', []);
