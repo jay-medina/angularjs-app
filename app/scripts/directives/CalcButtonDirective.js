@@ -5,6 +5,8 @@ angular.module('Directives')
 .directive('calcButton', function(){
 
 	return {
-		template: 'Hello This is a new directive'
+		restrict: 'E',
+		//template: 'Hello This is a new directive'
+		templateUrl: 'views/calcButton.html'
 	};
 });
