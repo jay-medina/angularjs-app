@@ -11,6 +11,11 @@ angular.module('angularDemoApps')
 		$scope.equation = '';
 		$scope.sign = '';
 		$scope.evaluateHit = false;
+		$scope.numbers = {};
+
+		for(var i = 0; i < 10; i++){
+			$scope.numbers[i] = i;
+		}
 
 		$scope.backTrack = function(){
 			if($scope.values.currentValue !== 0 && !$scope.evaluateHit){

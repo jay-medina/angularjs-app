@@ -14,28 +14,27 @@
 			<td><button ng-click="setOperation('/')">&#247;</button></td>
 		</tr>
 		<tr>
-			<td><button class="number" ng-click="setValue(7);">7</button></td>
-			<td><button class="number" ng-click="setValue(8);">8</button></td>
-			<td><button class="number" ng-click="setValue(9);">9</button></td>
+			<td><number-button my-click='setValue'>7</number-button></td>
+			<td><number-button my-click='setValue'>8</number-button></td>
+			<td><number-button my-click='setValue'>9</number-button></td>
 			<td><button ng-click="setOperation('*')">x</button></td>
 		</tr>
 		<tr>
-			<td><button class="number" ng-click="setValue(4);">4</button></td>
-			<td><button class="number" ng-click="setValue(5);">5</button></td>
-			<td><button class="number" ng-click="setValue(6);">6</button></td>
+			<td><number-button my-click='setValue'>4</number-button></td>
+			<td><number-button my-click='setValue'>5</number-button></td>
+			<td><number-button my-click='setValue'>6</number-button></td>
 			<td><button ng-click="setOperation('-')">-</button></td>
 		</tr>
 		<tr>
-			<td><button class="number" ng-click="setValue(1);">1</button></td>
-			<td><button class="number" ng-click="setValue(2);">2</button></td>
-			<td><button class="number" ng-click="setValue(3);">3</button></td>
+			<td><number-button my-click='setValue'>1</number-button></td>
+			<td><number-button my-click='setValue'>2</number-button></td>
+			<td><number-button my-click='setValue'>3</number-button></td>
 			<td><button ng-click="setOperation('+')">+</button></td>
 		</tr>
 		<tr>
-			<td><button class="number" ng-click="setValue(0);">0</button></td>
+			<td><number-button my-click='setValue'>0</number-button></td>
 			<td><button ng-click="setValue('.');">.</button></td>
 			<td colspan="2" class="number"><button id="equalsign" ng-click="evaluate()">=</button></td>
 		</tr>
-
 	</table>
 </div>
