@@ -3,6 +3,10 @@ Testing Angular JS With a bunch of Demo Apps
 - In order to run, please install node.js with npm
 http://www.nodejs.org/
 
+- Application uses SaSS with Compass, so please have Ruby installed as well.
+> Mac comes preinstalled, Windows http://rubyinstaller.org/downloads/
+
+
 - Clone repo.
 
 - Please run npm install - This will grab all of the node modules needed
