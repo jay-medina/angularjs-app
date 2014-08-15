@@ -6,6 +6,8 @@ http://www.nodejs.org/
 - Application uses SaSS with Compass, so please have Ruby installed as well.
 > Mac comes preinstalled, Windows http://rubyinstaller.org/downloads/
 
+- If needed the compass gem, needs to be installed
+> gem install compass
 
 - Clone repo.
 
